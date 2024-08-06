@@ -36,6 +36,10 @@ Remove the entire directory where the docker-compose.yaml file is present: ```rm
 
 Pull the docker-compose.yaml file again, and follow the previous steps in this guide: ```curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.9.3/docker-compose.yaml'```
 
+### Developing DAGs
+An environment to develop DAGs has already been set up for you, simply open your DevContainer in VS Code and create your DAGs in the /dags directory.
+After you have developed your DAGs, reopen the folder in SSH to be able to spin up Airflow.
+
 ### Misc
 If you are not using a Linux-based OS, you may get a warning that the AIRFLOW_UID is not set, but you can safely ignore this.
 
