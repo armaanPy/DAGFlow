@@ -1,19 +1,13 @@
-FROM python:3.9-slim
+FROM apache/airflow:2.9.3
 
-WORKDIR /DAGFlow
+RUN curl -sSL https://install.python-poetry.org | python3 && \
+    export PATH=$PATH:/root/.local/bin && \
+    poetry config virtualenvs.create false
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libssl-dev \
-    libffi-dev \
-    libpq-dev \
-    gcc \
-    git \
-    && apt-get clean
+COPY pyproject.toml poetry.lock* /opt/airflow/
 
-RUN pip install poetry==1.8.3
+WORKDIR /opt/airflow
 
-COPY pyproject.toml poetry.lock /DAGFlow/
-COPY . /DAGFlow/
+RUN poetry install --no-root
 
-RUN poetry install --no-root && ln -s $(poetry env info --path) ~/venv
+USER airflow

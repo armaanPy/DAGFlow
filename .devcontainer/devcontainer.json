@@ -1,6 +1,6 @@
 {
     "name": "DAGFlow",
-    "dockerFile": "../Dockerfile",
+    "dockerFile": "../Dockerfile-dev",
     "customizations": {
         "vscode": {
             "settings": {
