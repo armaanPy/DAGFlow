@@ -17,9 +17,13 @@ start_airflow-init_1 exited with code 0
 
 The account has created the login airflow and the password airflow.
 
+### Build image that contains custom Poetry dependencies
+```docker-compose build```
+
 ### Running Airflow
 You can start all services with the following command:
 ```docker compose up```
+You can use the ```-d``` flag to run in detached, but it is not recommended as you will want to see when the instance has spun up.
 
 ### Stopping Airflow
 You can stop and delete containers, volumes with database data and images with the following command:
